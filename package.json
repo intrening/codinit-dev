@@ -4,6 +4,7 @@
   "private": false,
   "scripts": {
     "dev": "next dev --turbo",
+    "dev:webpack": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -58,7 +59,6 @@
     "flags": "^4.0.1",
     "framer-motion": "^12.23.22",
     "geist": "^1.5.1",
-    "group-by.js": "link:core-js/features/object/group-by.js",
     "js-cookie": "^3.0.5",
     "lru-cache": "^11.2.2",
     "lucide-react": "^0.396.0",
@@ -76,7 +76,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.63.0",
     "react-resizable-panels": "^3.0.6",
-    "react-syntax-highlighter": "^5.8.0",
+    "react-syntax-highlighter": "^15.6.6",
     "react-textarea-autosize": "^8.5.9",
     "recharts": "^3.2.1",
     "server-only": "^0.0.1",
@@ -94,6 +94,14 @@
     "path-to-regexp": "^6.3.0",
     "esbuild": "^0.25.9"
   },
+  "pnpm": {
+    "overrides": {
+      "zod": "^3.25.76",
+      "undici": "^6.21.3",
+      "prismjs": "^1.30.0",
+      "esbuild": "^0.25.9"
+    }
+  },
   "devDependencies": {
     "@swc/cli": "^0.7.8",
     "@swc/core": "^1.13.20",
@@ -106,12 +114,22 @@
     "@types/react-dom": "^18.3.7",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/uuid": "^10.0.0",
-    "@vercel/node": "^2.15.10",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "@vercel/node": "^5.3.24",
     "autoprefixer": "^10.4.21",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "14.2.4",
+    "eslint": "^9.15.0",
+    "eslint-config-next": "15.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2"
-  }
+  },
+  "packageManager": "pnpm@10.17.1",
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 11"
+  ]
 }
