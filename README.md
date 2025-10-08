@@ -1,5 +1,16 @@
-![opengraph](https://github.com/user-attachments/assets/de684e88-a65c-42ea-b067-d1a3bc85a420)
+![CodinIT.dev: AI-Powered Full-Stack Web Development in the Browser](https://github.com/user-attachments/assets/de684e88-a65c-42ea-b067-d1a3bc85a420)
 
+<p align="center">
+  <strong>CodinIT.dev Build With AI In Local Enviroment or With Our Web App</strong>
+</p>
+
+<p align="center">
+  <a href="https://docs.codinit.dev">Documentation</a> •
+  <a href="https://codinit.dev">Website</a> •
+  <a href="https://gerome-elassaad.github.io/codinit-app">Desktop App Docs</a> •
+  <a href="#features">Features</a> •
+  <a href="#get-started">Get Started</a>
+</p>
 
 <p align="center">
   <a href="https://e2b.dev/startups">
@@ -7,31 +18,59 @@
   </a>
 </p>
 
+---
 
-## Features
+## 📦 Workspace Structure
 
-- Based on Next.js 14 (App Router, Server Actions), shadcn/ui, TailwindCSS, Vercel AI SDK.
-- Streaming in the UI.
-- Can install and use any package from npm, pip.
-- Supported stacks ([add your own](#adding-custom-personas)):
-  - 🔸 Python interpreter
-  - 🔸 Next.js
-  - 🔸 Vue.js
-  - 🔸 Streamlit
-  - 🔸 Gradio
-- Supported LLM Providers ([add your own](#adding-custom-llm-models)):
-  - 🔸 OpenAI
-  - 🔸 Anthropic
-  - 🔸 Google AI
-  - 🔸 Mistral
-  - 🔸 Groq
-  - 🔸 Fireworks
-  - 🔸 Together AI
-  - 🔸 Ollama
+> **This is a pnpm workspace monorepo** containing two applications:
 
-**Make sure to give us a star!**
+| Application | Location | Framework | Port | Deploy |
+|-------------|----------|-----------|------|--------|
+| **@codinit/web** | `/` (root) | Next.js 14 | 3000 | Vercel |
+| **@codinit/desktop** | `/apps/desktop` | Remix + Electron | 5173 | Desktop installers |
 
-This is an open-source version of apps like [Anthropic's Claude Artifacts](https://www.anthropic.com/news/claude-3-5-sonnet), Vercel [v0](https://v0.dev), or [GPT Engineer](https://gptengineer.app).
+📚 **[WORKSPACE.md](WORKSPACE.md)** - Complete workspace guide (commands, deployment, architecture)
+
+---
+
+## ✨ Features
+
+### Core Capabilities
+- 🚀 **AI-Powered Code Generation** - Multiple LLM providers (OpenAI, Anthropic, Google AI, and more)
+- ⚡ **Real-time Code Execution** - Secure E2B sandboxes with live preview
+- 📊 **Multiple Development Environments** - Python, Next.js, Vue.js, Streamlit, Gradio
+- 💬 **Streaming AI Responses** - Real-time UI updates with Vercel AI SDK
+- 🔐 **Secure Authentication** - Supabase auth with Row Level Security
+- 📦 **Package Installation** - Install any npm or pip package on the fly
+
+### Supported LLM Providers
+- 🔸 **OpenAI** (GPT-5, GPT-4)
+- 🔸 **Anthropic** (Claude models)
+- 🔸 **Google AI** (Gemini)
+- 🔸 **Groq** (Fast inference)
+- 🔸 **Fireworks AI**
+- 🔸 **Together AI**
+- 🔸 **Mistral AI**
+- 🔸 **xAI** (Grok)
+- 🔸 **DeepSeek**
+- 🔸 **Ollama** (Local models)
+
+### Development Environments
+- 🐍 **Python Data Analyst** - Jupyter-style execution with data visualization
+- ⚛️ **Next.js Developer** - Full-stack React applications
+- 🎨 **Vue.js Developer** - Vue 3 applications
+- 📈 **Streamlit Developer** - Data apps and dashboards
+- 🎯 **Gradio Developer** - ML model interfaces
+
+### Built With
+- **Next.js 14** (App Router, Server Actions)
+- **shadcn/ui** + **TailwindCSS** for beautiful UI
+- **Vercel AI SDK** for LLM streaming
+- **E2B** for secure code execution
+- **Supabase** for database and auth
+- **TypeScript** for type safety
+
+**⭐ Give us a star if you like this project!**
 
 ## Get started
 
@@ -47,7 +86,7 @@ This is an open-source version of apps like [Anthropic's Claude Artifacts](https
 In your terminal:
 
 ```
-git clone https://github.com/e2b-dev/fragments.git
+git clone https://github.com/Gerome-Elassaad/CodingIT.git
 ```
 
 ### 2. Install the dependencies
@@ -55,14 +94,16 @@ git clone https://github.com/e2b-dev/fragments.git
 Enter the repository:
 
 ```
-cd fragments
+cd CodingIT
 ```
 
-Run the following to install the required dependencies:
+Run the following to install the required dependencies for both workspaces:
 
 ```
-npm i
+pnpm install
 ```
+
+> **Note:** This project uses **pnpm workspaces**. The command above installs dependencies for both the web app and desktop app.
 
 ### 3. Set the environment variables
 
@@ -118,133 +159,41 @@ NEXT_PUBLIC_POSTHOG_HOST=
 
 ### 4. Start the development server
 
+**Web App (Next.js):**
 ```
-npm run dev
+pnpm dev
+```
+Visit http://localhost:3000
+
+**Desktop App (Electron + Remix):**
+```
+pnpm desktop:dev
+```
+Or:
+```
+cd apps/desktop && pnpm dev
+```
+Visit http://localhost:5173
+
+### 5. Build the applications
+
+**Web App:**
+```
+pnpm build
 ```
 
-### 5. Build the web app
-
+**Desktop App:**
 ```
-npm run build
+pnpm desktop:build        # Build all platforms
+pnpm desktop:build:mac    # macOS only
+pnpm desktop:build:win    # Windows only
+pnpm desktop:build:linux  # Linux only
 ```
-
-## Customize
-
-### Adding custom personas
-
-1. Make sure [E2B CLI](https://e2b.dev/docs/cli) is installed and you're logged in.
-
-2. Add a new folder under [sandbox-templates/](sandbox-templates/)
-
-3. Initialize a new template using E2B CLI:
-
-    ```
-    e2b template init
-    ```
-
-    This will create a new file called `e2b.Dockerfile`.
-
-4. Adjust the `e2b.Dockerfile`
-
-    Here's an example streamlit template:
-
-    ```Dockerfile
-    # You can use most Debian-based base images
-    FROM python:3.19-slim
-
-    RUN pip3 install --no-cache-dir streamlit pandas numpy matplotlib requests seaborn plotly
-
-    # Copy the code to the container
-    WORKDIR /home/user
-    COPY . /home/user
-    ```
-
-5. Specify a custom start command in `e2b.toml`:
-
-    ```toml
-    start_cmd = "cd /home/user && streamlit run app.py"
-    ```
-
-6. Deploy the template with the E2B CLI
-
-    ```
-    e2b template build --name <template-name>
-    ```
-
-    After the build has finished, you should get the following message:
-
-    ```
-    ✅ Building sandbox template <template-id> <template-name> finished.
-    ```
-
-7. Open [lib/templates.json](lib/templates.json) in your code editor.
-
-    Add your new template to the list. Here's an example for Streamlit:
-
-    ```json
-    "streamlit-developer": {
-      "name": "Streamlit developer",
-      "lib": [
-        "streamlit",
-        "pandas",
-        "numpy",
-        "matplotlib",
-        "request",
-        "seaborn",
-        "plotly"
-      ],
-      "file": "app.py",
-      "instructions": "A streamlit app that reloads automatically.",
-      "port": 8501 // can be null
-    },
-    ```
-
-    Provide a template id (as key), name, list of dependencies, entrypoint and a port (optional). You can also add additional instructions that will be given to the LLM.
-
-4. Optionally, add a new logo under [public/thirdparty/templates](public/thirdparty/templates)
-
-### Adding custom LLM models
-
-1. Open [lib/models.json](lib/models.ts) in your code editor.
-
-2. Add a new entry to the models list:
-
-    ```json
-    {
-      "id": "mistral-large",
-      "name": "Mistral Large",
-      "provider": "Ollama",
-      "providerId": "ollama"
-    }
-    ```
-
-    Where id is the model id, name is the model name (visible in the UI), provider is the provider name and providerId is the provider tag (see [adding providers](#adding-custom-llm-providers) below).
-
-### Adding custom LLM providers
-
-1. Open [lib/models.ts](lib/models.ts) in your code editor.
-
-2. Add a new entry to the `providerConfigs` list:
-
-    Example for fireworks:
-
-    ```ts
-    fireworks: () => createOpenAI({ apiKey: apiKey || process.env.FIREWORKS_API_KEY, baseURL: baseURL || 'https://api.fireworks.ai/inference/v1' })(modelNameString),
-    ```
-
-3. Optionally, adjust the default structured output mode in the `getDefaultMode` function:
-
-    ```ts
-    if (providerId === 'fireworks') {
-      return 'json'
-    }
-    ```
-
-4. Optionally, add a new logo under [public/thirdparty/logos](public/thirdparty/logos)
 
 ## Contributing
 
 As an open-source project, we welcome contributions from the community. If you are experiencing any bugs or want to add some improvements, please feel free to open an issue or pull request.
+
 ## 🔧 Customize
 
 ### Adding Custom Development Templates
