@@ -51,3 +51,11 @@ next-env.d.ts
 scripts
 .vscode
 mcp.json
+# Supabase
+.branches
+.temp
+
+# dotenvx
+.env.keys
+.env.local
+.env.*.local

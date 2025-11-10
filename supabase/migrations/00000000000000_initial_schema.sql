@@ -1,4 +1,19 @@
 -- =============================================================================
+-- CodinIT.dev Initial Schema - Public Schema Only (Fixed v2)
+-- =============================================================================
+-- Compatible with Supabase Cloud
+-- Fixes:
+-- 1. Changed DEFAULT to GENERATED ALWAYS AS for computed columns
+-- 2. Moved DEFAULT parameters to end of function signatures
+-- =============================================================================
+
+-- Extensions (will be skipped if already exist)
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA extensions;
+CREATE EXTENSION IF NOT EXISTS "vector" WITH SCHEMA extensions;
+CREATE EXTENSION IF NOT EXISTS "pg_trgm" WITH SCHEMA pg_catalog;
+CREATE EXTENSION IF NOT EXISTS "pgcrypto" WITH SCHEMA extensions;
+
+-- =============================================================================
 -- CodinIT.dev Public Schema - Complete Database Schema
 -- =============================================================================
 -- This file contains the complete public schema for CodingIT.dev including:
